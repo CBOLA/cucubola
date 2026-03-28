@@ -1,1 +1,193 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUCUBOLA - PASARAN ANGKA HARI INI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #f3ba2f; --bg-main: #0b0e11; --green: #02c076; --red: #ff4d4d; --card-bg: #181a20; }
+        body { background: var(--bg-main); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding-top: 80px; }
+        
+        header { background: #181a20; padding: 12px; position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid #333; text-align: center; }
+        .btn-nav { padding: 10px 20px; font-weight: 700; border-radius: 6px; text-decoration: none; text-transform: uppercase; font-size: 12px; display: inline-block; transition: 0.3s; }
+        .btn-login { background: #fff; color: #000; margin-right: 10px; }
+        .btn-daftar { background: var(--gold); color: #000; }
+        .btn-nav:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        .container { max-width: 1100px; margin: auto; padding: 15px; }
+        
+        /* Section Hero/Banner berdasarkan Gambar */
+        .hero-section { text-align: center; padding: 40px 20px; background: linear-gradient(to bottom, #1e1b15, #0b0e11); border-radius: 15px; margin-bottom: 30px; border: 1px solid #2a2418; }
+        .hero-title { color: var(--gold); font-size: 32px; font-weight: 800; margin: 0; text-transform: uppercase; line-height: 1.2; }
+        .hero-subtitle { font-size: 18px; color: #ccc; margin: 10px 0; font-weight: 400; }
+        .hero-slogan { font-style: italic; color: var(--gold); font-size: 16px; margin: 20px 0; opacity: 0.9; }
+        .hero-divider { width: 150px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 20px auto; }
+        .hero-info { font-size: 14px; font-weight: 600; color: #fff; }
+        .hero-info span { color: var(--gold); }
+
+        .section-title { text-align: center; color: var(--gold); font-size: 20px; margin: 40px 0 25px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; border-bottom: 2px solid #333; padding-bottom: 10px; }
+
+        .prediksi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; justify-items: center; }
+
+        .p-card { width: 100%; max-width: 380px; position: relative; margin-bottom: 20px; background: var(--card-bg); padding: 15px; border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
+        .p-card:hover { border-color: var(--gold); }
+        .p-status { font-weight: 800; font-size: 12px; margin-bottom: 8px; display: inline-block; padding: 4px 10px; border-radius: 4px; background: rgba(0,0,0,0.3); }
+        .p-header-title { color: var(--gold); text-align: center; font-weight: 800; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; }
+        
+        .p-box { background: #000; border: 1px dashed #444; border-radius: 10px; padding: 15px; font-family: 'Courier New', Courier, monospace; line-height: 1.4; color: #f5d27a; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+        .p-pre { white-space: pre-wrap; font-size: 13px; margin: 0; }
+        
+        .p-action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .btn-action { border: none; padding: 10px; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; text-align: center; text-decoration: none; transition: 0.2s; }
+        .btn-salin { background: var(--gold); color: #000; }
+        .btn-share { background: var(--green); color: #fff; }
+        .btn-action:active { transform: scale(0.95); }
+
+        .malam-section { grid-column: 1 / -1; width: 100%; max-width: 850px; margin: 40px auto; }
+        .is-closed { opacity: 0.5; filter: grayscale(0.8); order: 99; }
+
+        @media (max-width: 600px) { 
+            .hero-title { font-size: 24px; }
+            .prediksi-grid { grid-template-columns: 1fr; }
+            body { padding-top: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="https://cucubola.com" class="btn-nav btn-login">LOGIN</a>
+    <a href="https://cucubola.com" class="btn-nav btn-daftar">DAFTAR</a>
+</header>
+
+<div class="container">
+    <!-- Section Banner Sesuai Gambar -->
+    <div class="hero-section">
+        <h1 class="hero-title">Cucubola Situs Resmi<br>Link Alternatif Terbaru</h1>
+        <p class="hero-subtitle">Situs Resmi Link Alternatif</p>
+        <p class="hero-slogan">"Berani Masuk, Cerdik Bermain, Menang Sebagai Legenda Cucubola"</p>
+        <div class="hero-divider"></div>
+        <p class="hero-info">Minimal Depo <span>Rp10.000</span> dan WD <span>Rp50.000</span></p>
+    </div>
+
+    <h2 class="section-title">📊 PASARAN ANGKA HARI INI</h2>
+    <div id="grid-reguler" class="prediksi-grid"></div>
+
+    <div class="malam-section">
+        <h2 class="section-title">🌙 REKAP PASARAN MALAM</h2>
+        <div class="p-card" style="max-width: 100%; border: 2px solid var(--gold);">
+            <div class="p-box">
+                <pre class="p-pre" id="text-malam-gabungan">Menyusun angka pasaran malam...</pre>
+            </div>
+            <button class="btn-action btn-salin" style="width: 100%; margin-top: 15px; font-size: 14px;" onclick="cp('text-malam-gabungan')">SALIN SEMUA PASARAN MALAM</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// --- SETTINGAN PREDIKSI (TIDAK DIRUBAH) ---
+const pasarans = [
+    {n:"TOTOMACAU P1", j:"13.00"}, {n:"SYDNEY LOTTO", j:"13.50"}, {n:"BRUNEI 14", j:"14.45"}, 
+    {n:"CHELSEA 15", j:"15.20"}, {n:"POIPET 15", j:"15.35"}, {n:"TOTOMACAU P2", j:"16.00"}, 
+    {n:"HUAHIN 1630", j:"16.45"}, {n:"KINGKONG SORE", j:"17.10"}, {n:"SINGAPORE", j:"17.45"}, 
+    {n:"MAGNUM 4D", j:"18.35"}, {n:"TOTOMACAU P3", j:"19.00"}, {n:"CHELSEA 19", j:"19.15"}, 
+    {n:"POIPET 19", j:"19.45"}, {n:"PCSO", j:"20.15"}, {n:"HUAHIN 21", j:"21.00"}, 
+    {n:"CHELSEA 21", j:"21.15"}, {n:"NEVADA", j:"21.30"}, {n:"BRUNEI 21", j:"21.45"}, 
+    {n:"TOTOMACAU P4", j:"22.00"}, {n:"HONGKONG LOTTO", j:"23.00"}, {n:"POIPET 22", j:"22.50"}, 
+    {n:"TOTOMACAU P5", j:"23.00"}, {n:"KINGKONG MALAM", j:"23.00"}
+];
+
+const pasaranMalamList = [
+    "TOTO MACAU P6", "KTM MID", "FLORIDA MID", "HUAHIN 0100", "NEWYORK MID", "BANGKOK 0130", 
+    "BRUNEI 02", "NCAROLINADAY", "OREGON 03", "OREGON 06", "CALIFORNIA", "FLORIDA EVE", 
+    "OREGON 09", "BANGKOK 0930", "NEWYORK EVE", "KENTUCKY EVE", "CAROLINA EVE", "CHELSEA 11", 
+    "TOTO CAMBODIA", "OREGON 12", "POIPET 12", "BULLSEYE"
+];
+
+function seededRandom(seed) {
+    let x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
+}
+
+function generateUniqueNumbers(name, dateStr, hour, count) {
+    let seedBase = name + dateStr + hour;
+    let seed = seedBase.split('').reduce((a, b) => { a = ((a << 5) - a) + b.charCodeAt(0); return a & a }, 0);
+    let numbers = [];
+    let i = 0;
+    while (numbers.length < count) {
+        let val = Math.floor(seededRandom(seed + i) * 10);
+        if (!numbers.includes(val)) numbers.push(val);
+        i++;
+    }
+    return numbers;
+}
+
+function render() {
+    const grid = document.getElementById("grid-reguler");
+    const malamBox = document.getElementById("text-malam-gabungan");
+    const now = new Date();
+    const curTotalMin = now.getHours() * 60 + now.getMinutes();
+    
+    const dayName = now.toLocaleDateString("id-ID", {weekday: 'long'}).toUpperCase();
+    const fullDateStr = now.toLocaleDateString("id-ID", {day: '2-digit', month: 'long', year: 'numeric'}).toUpperCase();
+
+    let sorted = [...pasarans].sort((a, b) => {
+        let tA = parseInt(a.j) * 60 + parseInt(a.j.split(".")[1] || 0);
+        let tB = parseInt(b.j) * 60 + parseInt(b.j.split(".")[1] || 0);
+        let isCA = curTotalMin >= tA;
+        let isCB = curTotalMin >= tB;
+        if (isCA !== isCB) return isCA ? 1 : -1;
+        return tA - tB;
+    });
+
+    grid.innerHTML = "";
+    sorted.forEach((p, idx) => {
+        const resH = parseInt(p.j);
+        const resMin = parseInt(p.j.split(".")[1] || 0);
+        const isClosed = curTotalMin >= (resH * 60 + resMin);
+        const b = generateUniqueNumbers(p.n, now.toDateString(), isClosed ? resH + 1 : resH, 7);
+
+        const text = `${p.n} (RESULT ${p.j})\n${dayName}, ${fullDateStr}\n====================\n\n💣BBFS 7 : ${b.join("")}\n💣BBFS 6 : ${b.slice(0,6).join("")}\n\n4D BB : ${b[0]}${b[1]}${b[2]}${b[3]} ${b[3]}${b[4]}${b[5]}${b[6]} ${b[0]}${b[2]}${b[4]}${b[6]}\n2D BB : ${b[0]}${b[1]} ${b[2]}${b[3]}\n\n🔥AM : ${b.slice(0,5).join("")}\n🔥CB : ${b[0]} - ${b[1]}\n🔥Twin : ${b[0]}-${b[1]}\n\nLOGIN : https://cucubola.com/`;
+
+        grid.innerHTML += `
+            <div class="p-card ${isClosed ? 'is-closed' : ''}">
+                <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span class="p-status" style="color:${isClosed ? 'var(--red)' : 'var(--green)'}; border: 1px solid ${isClosed ? 'var(--red)' : 'var(--green)'}">${isClosed ? '● CLOSED' : '● OPEN'}</span>
+                    <span style="font-size: 11px; opacity: 0.6; font-weight: 600;">JADWAL: ${p.j}</span>
+                </div>
+                <div class="p-header-title">${p.n}</div>
+                <div class="p-box"><pre class="p-pre" id="t-${idx}">${text}</pre></div>
+                <div class="p-action-btns">
+                    <button class="btn-action btn-salin" onclick="cp('t-${idx}')">SALIN ANGKA</button>
+                    <a class="btn-action btn-share" href="https://api.whatsapp.com/send?text=${encodeURIComponent(text)}" target="_blank">WHATSAPP</a>
+                </div>
+            </div>`;
+    });
+
+    let mDate = new Date(now);
+    if (now.getHours() < 13) mDate.setDate(now.getDate() - 1);
+    const labelBesok = new Date(mDate.getTime() + 86400000).toLocaleDateString("id-ID", {weekday:'long', day:'2-digit', month:'long'}).toUpperCase();
+
+    let rekap = `PASARAN MALAM\nEDISI: ${labelBesok}\n=========================\n\n`;
+    pasaranMalamList.forEach(name => {
+        const b = generateUniqueNumbers(name, mDate.toDateString(), 13, 7);
+        rekap += `📌 ${name}\n💣BBFS 7 : ${b.join("")}\n🔥AM : ${b.slice(0,5).join("")}\n🔥CB : ${b[0]} / ${b[1]}\n-------------------------\n`;
+    });
+    rekap += `\nLOGIN: CUCUBOLA.COM`;
+    malamBox.innerText = rekap;
+}
+
+function cp(id) {
+    const t = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(t).then(() => {
+        alert("✅ Prediksi berhasil disalin!");
+    });
+}
+
+render();
+setInterval(render, 60000); 
+</script>
+</body>
+</html>
